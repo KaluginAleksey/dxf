@@ -7,7 +7,9 @@ $files = scandir($directory);
 function layerReplace($file, $directory, $directory_res)
 {
     $str = file_get_contents($directory . $file);
-    $res = str_replace('FK', 'V_Saeg0_15', $str);
+    $search = ['FK', 'Z_15'];
+    $replace = ['V_Saeg0_15', 'V_BohrLS_15'];
+    $res = str_replace($search, $replace, $str);
     file_put_contents($directory_res . $file, $res);
 
 }
